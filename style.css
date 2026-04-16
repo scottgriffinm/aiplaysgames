@@ -35,24 +35,34 @@ html, body {
   color: #e8e8e8;
 }
 
-/* Prompt Button */
+/* Desktop actions row */
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Prompt Button — same style as icon boxes */
 .prompt-btn {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #888;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: #e8e8e8;
   text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: border-color 0.2s ease, background 0.2s ease;
   white-space: nowrap;
-  margin-right: 10px;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .prompt-btn:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.06);
+  color: #e8e8e8;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Social Icons */
@@ -116,39 +126,94 @@ html, body {
   text-transform: uppercase;
 }
 
+/* Mobile bento — hidden on desktop */
+.mobile-bento {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 640px) {
   .top-bar {
     height: 44px;
     padding: 0 12px;
+    justify-content: center;
   }
 
   .brand {
     font-size: 13px;
   }
 
-  .socials {
-    gap: 2px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .socials::-webkit-scrollbar {
+  /* Hide desktop socials + prompt */
+  .desktop-actions {
     display: none;
   }
 
-  .socials a {
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-  }
-
-  .socials a svg {
-    width: 16px;
-    height: 16px;
-  }
-
+  /* Stream sits between header and bento */
   .stream-container {
     top: 44px;
+    bottom: 160px;
+  }
+
+  /* Mobile bento grid */
+  .mobile-bento {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    z-index: 100;
+  }
+
+  /* Prompt button spans full width on top row */
+  .mobile-bento .bento-prompt {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .mobile-bento .bento-prompt:active {
+    color: #e8e8e8;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Social icon cells */
+  .mobile-bento a:not(.bento-prompt) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .mobile-bento a:not(.bento-prompt):active {
+    color: #e8e8e8;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-bento a svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
   }
 }
