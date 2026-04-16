@@ -4,7 +4,7 @@ html, body {
   height: 100%;
   background: #0f0f0f;
   color: #e8e8e8;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
                Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
@@ -58,6 +58,13 @@ html, body {
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.2s ease, background 0.2s ease;
+}
+
+.prompt-btn svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  flex-shrink: 0;
 }
 
 .prompt-btn:hover {
@@ -186,6 +193,13 @@ html, body {
     letter-spacing: 0.02em;
     text-decoration: none;
     transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .mobile-bento .bento-prompt svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    flex-shrink: 0;
   }
 
   .mobile-bento .bento-prompt:active {
