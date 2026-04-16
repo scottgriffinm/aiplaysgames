@@ -154,10 +154,10 @@ html, body {
     display: none;
   }
 
-  /* Series sits between header and bento */
+  /* Series sits between header and bento — flush */
   .series {
     top: 48px;
-    bottom: 160px;
+    bottom: 144px;
   }
 
   /* Mobile bento grid */
@@ -173,7 +173,6 @@ html, body {
     background: rgba(15, 15, 15, 0.95);
     backdrop-filter: blur(12px) saturate(130%);
     -webkit-backdrop-filter: blur(12px) saturate(130%);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 100;
   }
 
